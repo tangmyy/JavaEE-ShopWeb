@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	background: #25252b;
+}
+
+@property --a {
+	syntax: '<angle>';
+	inherits: false;
+	initial-value: 0deg;
+}
+
+.box {
+	position: relative;
+	width: 400px;
+	height: 400px; /* 调整盒子初始高度 */
+	background: repeating-conic-gradient(from var(--a), #ff2770 0%, #ff2770 5%, transparent 5%, transparent 40%, #ff2770 50%);
+	filter: drop-shadow(0 15px 50px #000);
+	border-radius: 20px;
+	animation: rotating 4s linear infinite;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: 0.5s;
+}
+
+.box:hover {
+	width: 600px;
+	height: 800px;
+}
+
+@keyframes rotating {
+	0% {
+		--a: 0deg;
+	}
+	100% {
+		--a: 360deg;
+	}
+}
+
+.box::before {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: repeating-conic-gradient(from var(--a), #45f3ff 0%, #45f3ff 5%, transparent 5%, transparent 40%, #45f3ff 50%);
+	filter: drop-shadow(0 15px 50px #000);
+	border-radius: 20px;
+	animation: rotating 4s linear infinite;
+	animation-delay: -1s;
+}
+
+.box::after {
+	content: '';
+	position: absolute;
+	inset: 4px;
+	background: #2d2d39;
+	border-radius: 15px;
+	border: 8px solid #25252b;
+}
+
+.login {
+	display: flex;
+	position: absolute;
+	inset: 50px; /* 调整盒子的初始尺寸 */
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	border-radius: 10px;
+	background: rgba(0, 0, 0, 0.2);
+	z-index: 1000;
+	box-shadow: inset 0 10px 20px rgba(0, 0, 0, 0.5);
+	border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+	transition: 0.5s;
+	color: #fff;
+	overflow: hidden;
+}
+
+.box:hover .login {
+	inset: 40px; /* 保持悬停时的尺寸不变 */
+}
+
+.loginBx {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 20px;
+	width: 70%;
+	transform: translateY(20px); /* 初始位置 */
+	transition: 0.5s;
+}
+
+.box:hover .loginBx {
+	transform: translateY(0px);
+}
+
+.loginBx h2 {
+	text-transform: uppercase;
+	font-weight: 600;
+	letter-spacing: 0.2em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.loginBx h2 i {
+	color: #ff2770;
+	text-shadow: 0 0 5px #ff2770, 0 0 25px #ff2770;
+	margin: 0 5px;
+}
+
+.loginBx .form-group {
+	display: none; /* 默认隐藏输入框 */
+	opacity: 0;
+	transition: opacity 0.5s;
+}
+
+.box:hover .loginBx .form-group {
+	display: block; /* 悬停时显示输入框 */
+	opacity: 1;
+}
+
+.loginBx input {
+	width: 100%;
+	padding: 10px 20px;
+	outline: none;
+	border: none;
+	font-size: 1em;
+	color: #fff;
+	background: rgba(0, 0, 0, 0.1);
+	border: 2px solid #fff;
+	border-radius: 30px;
+	margin-bottom: 10px; /* 添加外边距 */
+}
+
+.loginBx input::placeholder {
+	color: #999;
+}
+
+.loginBx input[type="submit"] {
+	background: #45f3ff;
+	border: none;
+	font-weight: 500;
+	color: #111;
+	cursor: pointer;
+	transition: 0.5s;
+}
+
+.loginBx input[type="submit"]:hover {
+	box-shadow: 0 0 10px #45f3ff, 0 0 60px #45f3ff;
+}
+
+.group {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.group a {
+	color: #fff;
+	text-decoration: none;
+}
+
+.group a:nth-child(2) {
+	color: #ff2770;
+	font-weight: 600;
+}
+
+/* 修改注册页面的尺寸 */
+.register .box {
+	width: 380px;  /* 设置注册页面盒子的宽度 */
+	height: 150px; /* 设置注册页面盒子的高度 */
+}
+
+.register .box:hover {
+	width: 600px; /* 悬停时的宽度 */
+	height: 700px; /* 悬停时的高度 */
+}
+
+.register .login {
+	inset: 40px; /* 设置注册页面login盒子的宽高 */
+}
+
+.register .box:hover .login {
+	inset: 40px; /* 悬停时login盒子的尺寸 */
+}

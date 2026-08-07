@@ -1,0 +1,109 @@
+@charset "GBK";
+    /* 	#top, header, nav, main, footer ,div{ */
+    /* 		border: 1px solid red;  */
+    /* 	} */
+    body {
+        width: 1024px;
+        margin: 0 auto;
+    }
+    #top {
+        height: 35px;
+        line-height: 35px;
+    }
+    .top{
+        height: 50px;
+        line-height:50px;
+        display: flex;
+        justify-content: space-between;
+    }
+    a{
+        text-decoration: none;
+    }
+    img {
+        vertical-align: middle;
+        transform:scale(0.49);
+        margin: 1px;
+    }
+
+    #top-home {
+        float: right;
+        margin-right: 50px;
+    }
+    header {
+        height: 100px;
+        display: flex;
+        align-items: center;
+    }
+    form{
+        display: flex;
+        align-items: center;
+    }
+    input[type=search] {
+        height: 40px;
+        width: 400px;
+        border-radius: 10px;
+    }
+
+    input[type=submit] {
+        background-image: url(image/search.png);
+        height: 40px;
+        width: 40px;
+        border-radius: 10px;
+    }
+    .itemTitle{
+        display: flex;
+        height: 50px;
+        text-align: center;
+        align-items: flex-end;
+
+    }
+    .item{
+        display: flex;
+        height: 100px;
+        justify-content: center;
+        align-items: center;
+        border-top: 1px solid  gray;
+        border-bottom: 1px solid gray;
+
+    }
+    .item span{
+        width: 30px;
+        text-align: center;
+    }
+
+    .cell{
+        display: flex;
+        justify-content: center;
+        flex-basis:50px;
+    }
+    .cell1{
+        flex-grow: 1;/* 子元素如何分配父元素的剩余空间，值越大，索取的越厉害。 */
+
+    }
+    .cell3{
+        flex-grow: 3;
+    }
+
+    .total{
+        position:fixed;/*生成绝对定位的元素，相对于浏览器窗口进行定位*/
+        width:1024px;/*总宽度，因为是fixed定位，所以已经脱离文档流，不受body正常文档流控制*/
+        margin:5px,atuo;/*上下5px,左右居中*/
+        bottom:0px;/*纵坐标从底部开始*/
+        background-color: lightgray ;
+        height: 40px;
+        line-height: 40px;/*行高和高度相等，则文字居中显示*/
+        display: flex;
+        justify-content:flex-end; /*设置弹性盒子容器，其弹性元素右对齐*/
+    }
+    .total span{
+        font-size: 24px;/*设置字号*/
+        color:red;/*设置字体颜色*/
+    }
+    .total button{
+        font-size: 24px;
+        background-color: red;
+        color:white;
+        width:100px;
+        border:0px;
+        margin-left: 10px; /*为了和左边的价钱span产生距离*/
+    }
