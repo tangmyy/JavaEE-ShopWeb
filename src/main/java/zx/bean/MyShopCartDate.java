@@ -24,6 +24,7 @@ public class MyShopCartDate {
       if (myShopCartItemData.getChecked()) {
          setTotal(total.add(commodity.getPrice()));
       }
+      refreshAllChecked();   // 遍历cartList中所有商品的checked状态，重新计算并设置allChecked
    }
 
    // 删除商品

@@ -81,6 +81,12 @@ function remove(commodityId) {
             } else if (data.success) {
                 var itemElement = document.querySelector(`.item[data-id="${commodityId}"]`);
                 itemElement.remove();
+                // 在 itemElement.remove() 之后，紧接着加上：
+                const remainingCheckboxes = document.querySelectorAll('.item-checkbox');
+                if (remainingCheckboxes.length > 0) {
+                    const allChecked = Array.from(remainingCheckboxes).every(cb => cb.checked);
+                    document.getElementById('select-all').checked = allChecked;
+                }
                 document.querySelector('.total-price').textContent = data.total;
                 if (data.cartEmpty) {
                     document.querySelector('main').innerHTML = '<h1>购物车空了，快去添加商品吧！</h1>';
