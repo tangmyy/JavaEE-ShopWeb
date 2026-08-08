@@ -3,28 +3,27 @@ package zx.bean;
 import java.util.ArrayList;
 
 public class HomeData {
-	// ¹ºÎïÊ×Ò³Êı¾İµÄ¹Ø¼üĞÅÏ¢ ±ØĞëÌá¹©ÕâĞ©ĞÅÏ¢
-	private String keyword;					// keyword != null£¬Ôò²»¿¼ÂÇsort
-	private int sort;							// keyword == null : sort==0 ²»·ÖÀà²éÑ¯£¬sort!=0·ÖÀà²éÑ¯
-	private int curPage; 					// ´Ó·ûºÏÌõ¼şµÄËùÓĞÊı¾İÖĞ¸ù¾İµ±Ç°Ò³µÄĞÅÏ¢È·¶¨È¡ÄÄ¼¸ÌõÊı¾İ
-	private int numPerPage = 8;			// Ò»Ò³ÏÔÊ¾µÄÉÌÆ·ÊıÁ¿£¨¼ÇÂ¼Êı£©
+	// å°è£…é¦–é¡µæ•°æ®çš„å…³é”®ä¿¡æ¯ï¼Œä»…æä¾›è¿™äº›ä¿¡æ¯
+	private String keyword;					// keyword != nullæ—¶ä¸å‚è€ƒsort
+	private int sort;							// keyword == null : sort==0 å…¨éƒ¨æŸ¥è¯¢ï¼Œsort!=0 åˆ†ç±»æŸ¥è¯¢
+	private int curPage; 					// ç”±æœåŠ¡å™¨æ ¹æ®ç”¨æˆ·ä¼ é€’å’Œå½“å‰é¡µé¢ä¿¡æ¯å†³å®šè¦å–çš„è®°å½•æ•°
+	private int numPerPage = 8;			// ä¸€é¡µæ˜¾ç¤ºçš„å•†å“æ•°æ®æ¡æ•°
 
-	private int totalElement;				// ·ûºÏÌõ¼şµÄËùÓĞÊı¾İ£¨È¡¾öÓÚkeyword sort numPerPage£¬ÔÚdao²ãÊµÏÖ¸³Öµ£©
-	private int totalPages; 				// ·ûºÏÌõ¼şµÄ×ÜÒ³Êı£¨È¡¾öÓÚkeyword sort£©
-	
+	private int totalElement;				// æŸ¥è¯¢è¿”å›çš„æ•°æ®æ¡æ•°ï¼Œå–å†³äº keyword sort numPerPageï¼Œç”±daoå±‚å®ç°èµ‹å€¼
+	private int totalPages; 				// æŸ¥è¯¢è¿”å›çš„æ€»é¡µæ•°ï¼Œå–å†³äº keyword sort
 
-	private int navigationPages = 5;						// Ò³Âëµ¼º½À¸ĞÅÏ¢
-	private int firstPageForNavigation;					// Ò³Âëµ¼º½À¸ÀïµÄµÚÒ»¸öÒ³ÂëÊıÖµ
-	private int lastPageForNavigation;					// Ò³Âëµ¼º½À¸ÀïµÄ×îºóÒ»¸öÒ³ÂëÊıÖµ È¡¾öÓÚ¿ªÍ·ÈıÌõ²ÎÊı
-	private ArrayList<Commodity> commodityList;		// ·ûºÏÌõ¼şµÄÊı¾İ£¨È¡¾öÓÚ ¿ªÍ·ÈıÌõ²ÎÊı£©
-																	// ´úÂë²¹Æë¹¤¾ß£ºctrl+/
+
+	private int navigationPages = 5;						// é¡µç å¯¼èˆªæ¡æ•°ä¿¡æ¯
+	private int firstPageForNavigation;					// é¡µç å¯¼èˆªæ¡çš„ç¬¬ä¸€ä¸ªé¡µç æ•°å€¼
+	private int lastPageForNavigation;					// é¡µç å¯¼èˆªæ¡æœ€åä¸€ä¸ªé¡µç æ•°å€¼ï¼Œå–å†³äºå¤´å°¾ç›¸å…³è®¡ç®—
+	private ArrayList<Commodity> commodityList;		// æŸ¥è¯¢è¿”å›çš„æ•°æ®ï¼Œå–å†³äºåˆ†é¡µç›¸å…³è®¡ç®—
 
 
 	public HomeData() {
 		super();
 	}
 
-	public HomeData(String keyword, int sort, int curPage) {		// String sort ¸Ä int sort
+	public HomeData(String keyword, int sort, int curPage) {
 		super();
 		this.keyword = keyword;
 		this.sort = sort;
@@ -32,82 +31,82 @@ public class HomeData {
 	}
 
 
-	public String getKeyword() {							// ¹Ø¼ü×Ö		Keyword
+	public String getKeyword() {							// å…³é”®å­—		Keyword
 		return keyword;
 	}
-	public int getSort() {										// ÅÅĞò			Sort
+	public int getSort() {										// åˆ†ç±»			Sort
 		return sort;
 	}
-	public int getCurPage() {									// µ±Ç°Ò³Âë		CurPage
+	public int getCurPage() {									// å½“å‰é¡µé¢		CurPage
 		return curPage;
 	}
-	public int getTotalElement() {							// ÔªËØ×ÜÊı		TotalElement
+	public int getTotalElement() {							// å…ƒç´ æ€»æ•°		TotalElement
 		return totalElement;
 	}
-	public int getNumPerPage() {								// Ã¿Ò³ÔªËØÊı	NumPerPage
+	public int getNumPerPage() {								// æ¯é¡µå…ƒç´ æ•°	NumPerPage
 		return numPerPage;
 				}
-	public int getTotalPages() {								// ×ÜÒ³Êı		TotalPages
+	public int getTotalPages() {								// æ€»é¡µæ•°		TotalPages
 		return totalPages;
 	}
-	public int getNavigationPages() {						// µ¼º½À¸Ò³Êı	NavigationPages
+	public int getNavigationPages() {						// å¯¼èˆªé¡µæ•°	NavigationPages
 		return navigationPages;
 	}
-	public int getFirstPageForNavigation() {				// µ¼º½À¸Ê×Ò³	FirstPageForNavigation
+	public int getFirstPageForNavigation() {				// å¯¼èˆªé¦–é¡µ	FirstPageForNavigation
 		return firstPageForNavigation;
 	}
-	public int getLastPageForNavigation() {				// µ¼º½À¸Ä©Ò³	LastPageForNavigation
+	public int getLastPageForNavigation() {				// å¯¼èˆªæœ«é¡µ	LastPageForNavigation
 		return lastPageForNavigation;
 	}
-	public ArrayList<Commodity> getCommodityList() {	// ÉÌÆ·ÁĞ±í		CommodityList
+	public ArrayList<Commodity> getCommodityList() {	// å•†å“åˆ—è¡¨		CommodityList
 		return commodityList;
 	}
 
 
-	public void setKeyword(String keyword) {																	// ¹Ø¼ü×Ö		Keyword
+	public void setKeyword(String keyword) {																	// å…³é”®å­—		Keyword
 		this.keyword = keyword;
 	}
-	public void setSort(int sort) {																				// ÅÅĞò			Sort
+	public void setSort(int sort) {																				// åˆ†ç±»			Sort
 		this.sort = sort;
 	}
-	public void setCurPage(int curPage) {																		// µ±Ç°Ò³Âë		CurPage
+	public void setCurPage(int curPage) {																		// å½“å‰é¡µé¢		CurPage
 		this.curPage = curPage;
 	}
-	public void setTotalElement(int totalElement) {															// ÔªËØ×ÜÊı		TotalElement
+	public void setTotalElement(int totalElement) {															// å…ƒç´ æ€»æ•°		TotalElement
 		this.totalElement = totalElement;
 		setTotalPages();
 		setFirstPageForNavigation();
 		setLastPageForNavigation();
 	}
-	public void setNumPerPage(int numPerPage) {																// Ã¿Ò³ÔªËØÊı	NumPerPage
+	public void setNumPerPage(int numPerPage) {																// æ¯é¡µå…ƒç´ æ•°	NumPerPage
 		this.numPerPage = numPerPage;
 	}
-	public void setTotalPages() {																					// ×ÜÒ³Êı		TotalPages
+	public void setTotalPages() {																					// æ€»é¡µæ•°		TotalPages
 		this.totalPages = (totalElement-1)/numPerPage +1;
 	}
-	public void setNavigationPages(int navigationPages) {													// µ¼º½À¸Ò³Êı	NavigationPages
+	public void setNavigationPages(int navigationPages) {													// å¯¼èˆªé¡µæ•°	NavigationPages
 		this.navigationPages = navigationPages;
 	}
 
-	public void setFirstPageForNavigation() {																	// µ¼º½À¸Ê×Ò³	FirstPageForNavigation
+	public void setFirstPageForNavigation() {																	// å¯¼èˆªé¦–é¡µ	FirstPageForNavigation
 		if (totalElement == 0)
 			this.firstPageForNavigation = 0;
 		else if (curPage <= navigationPages/2+1)    // 1 2 3 4 5    23456
 			firstPageForNavigation = 1;
-		else 
+		else
 			firstPageForNavigation = curPage-navigationPages/2;
 	}
 
-	public void setLastPageForNavigation() {																	// µ¼º½À¸Ä©Ò³	LastPageForNavigation
+	public void setLastPageForNavigation() {																	// å¯¼èˆªæœ«é¡µ	LastPageForNavigation
 		this.lastPageForNavigation = Math.min(firstPageForNavigation +navigationPages-1,totalPages);
 	}
 
-	public void setCommodityList(ArrayList<Commodity> commodityList) {								// ÉÌÆ·ÁĞ±í		CommodityList
+	public void setCommodityList(ArrayList<Commodity> commodityList) {								// å•†å“åˆ—è¡¨		CommodityList
 		this.commodityList = commodityList;
 	}
 
 
-	@Override //ÓÃÓÚ·µ»Ø¶ÔÏóµÄ¹şÏ£ÂëÖµ¡£¿ÉÒÔÓÃÓÚ½«¶ÔÏó´æ´¢ÔÚ¹şÏ£±íÖĞ£¬ÒÔÌá¸ß²éÕÒĞ§ÂÊ¡£
+	@Override // è¯¥æ–¹æ³•é‡å†™çˆ¶ç±»çš„å“ˆå¸Œå‡½æ•°ï¼Œç”¨äºå°†å¯¹è±¡å­˜å‚¨åœ¨å“ˆå¸Œé›†åˆä¸­ï¼Œæé«˜æŸ¥æ‰¾æ•ˆç‡ã€‚
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -117,7 +116,7 @@ public class HomeData {
 		return result;
 	}
 
-	@Override //ÓÃÓÚ±È½ÏÁ½¸ö¶ÔÏóÊÇ·ñÏàµÈ¡£Ä¬ÈÏÇé¿öÏÂ£¬Ëü±È½ÏµÄÊÇ¶ÔÏóµÄÄÚ´æµØÖ·£¬µ«¿ÉÒÔ¸ù¾İĞèÒªÖØĞ´ÒÔ±È½Ï¶ÔÏóµÄÄÚÈİ¡£
+	@Override // è¯¥æ–¹æ³•æ¯”è¾ƒä¸¤ä¸ªå¯¹è±¡æ˜¯å¦ç›¸ç­‰ï¼Œé»˜è®¤æƒ…å†µä¸‹æ¯”è¾ƒçš„æ˜¯å¯¹è±¡å†…å­˜åœ°å€ï¼Œæ ¹æ®éœ€è¦é‡å†™ä»¥ä¾¿æ¯”è¾ƒå¯¹è±¡çš„æ•°æ®å†…å®¹ã€‚
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
@@ -138,7 +137,7 @@ public class HomeData {
 		return true;
 	}
 
-	@Override //ÓÚ·µ»Ø¶ÔÏóµÄ×Ö·û´®±íÊ¾ĞÎÊ½¡£Í¨³£ÖØĞ´Õâ¸ö·½·¨£¬ÒÔ±ãÒÔ¸üÓĞÒâÒåµÄ·½Ê½ÏÔÊ¾¶ÔÏóµÄÄÚÈİ¡£
+	@Override // è¯¥æ–¹æ³•é‡å†™å¯¹è±¡çš„å­—ç¬¦ä¸²è¡¨ç¤ºå½¢å¼ï¼Œé€šè¿‡é‡å†™è¯¥æ–¹æ³•å¯ä»¥æ›´æ–¹ä¾¿çš„æ–¹å¼æ˜¾ç¤ºå¯¹è±¡æ•°æ®ã€‚
 	public String toString() {
 		return "HomeData [keyword=" + keyword + ", sort=" + sort + ", curPage=" + curPage + ", totalElement="
 				+ totalElement + ", numPerPage=" + numPerPage + ", totalPages=" + totalPages + ", navigationPages="

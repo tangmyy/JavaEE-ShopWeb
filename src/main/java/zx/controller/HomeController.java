@@ -30,24 +30,24 @@ public class HomeController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// »ñÈ¡¿Í»§¶ËÊäÈë
+		// è·å–å®¢æˆ·ç«¯å‚æ•°
 		String keyword = request.getParameter("keyword");
 		int sort = (request.getParameter("sort")==null)?0:Integer.parseInt(request.getParameter("sort"));
 		int curPage = (request.getParameter("curPage")==null)?1:Integer.parseInt(request.getParameter("curPage"));
 
 
 
-		// µ÷ÓÃÄ£ĞÍ²ã´¦ÀíÒµÎñ
+		// è°ƒç”¨æ¨¡å‹å±‚å¤„ç†ä¸šåŠ¡
 		HomeData homeData = new HomeData(keyword,sort,curPage);
 		System.out.println(homeData);
 		CommodityService.prepareForHomeData(homeData);
 
-		// ½«¹Ø¼ü×ÖĞÅÏ¢ÉèÖÃµ½ÇëÇóÊôĞÔÖĞ£¬ÒÔ±ãÔÚÒ³ÃæÖĞÊ¹ÓÃ
+		// å°†å…³é”®å­—ä¿¡æ¯å­˜åˆ°è¯·æ±‚åŸŸä¸­ï¼Œæ–¹ä¾¿é¡µé¢å±•ç¤ºä½¿ç”¨
 		request.setAttribute("keyword", keyword);
 
-		// °Ñ´¦ÀíºóµÄÊı¾İ´«µ½ÏàÓ¦µÄjspÉÏ£¨ÏìÓ¦¿Í»§¶Ë£©
+		// å°†å¤„ç†å¥½çš„æ•°æ®ä¼ åˆ°å¯¹åº”çš„jspä¸Šï¼Œå“åº”ç»™å®¢æˆ·ç«¯
 		request.setAttribute("homeData", homeData);											// key-value String-HomeData
-		request.getRequestDispatcher("home.jsp").forward(request, response);		// requestºÍresponseÊÇÊ²Ã´£¿
+		request.getRequestDispatcher("home.jsp").forward(request, response);		// requestå’Œresponseçš„ä½œç”¨
 
 	}
 

@@ -1,11 +1,11 @@
 /**
- *
+ * è´­ç‰©è½¦äº¤äº’è„šæœ¬
  */
 document.addEventListener('DOMContentLoaded', (event) => {
     const selectAllCheckbox = document.getElementById('select-all');
     const itemCheckboxes = document.querySelectorAll('.item-checkbox');
 
-    // ¼àÌıÈ«Ñ¡¿òµÄ±ä»¯
+    // ç›‘å¬å…¨é€‰æ¡†çš„å˜åŒ–
     selectAllCheckbox.addEventListener('change', function() {
         const isChecked = selectAllCheckbox.checked;
         itemCheckboxes.forEach(checkbox => {
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         updateAllCheckedBox(isChecked);
     });
 
-    // ¼àÌıÃ¿¸öµ¥Ñ¡¿òµÄ±ä»¯
+    // ç›‘å¬æ¯ä¸ªå•é€‰é¡¹çš„å˜åŒ–
     itemCheckboxes.forEach(checkbox => {
         checkbox.addEventListener('change', function() {
             const allChecked = Array.from(itemCheckboxes).every(checkbox => checkbox.checked);
@@ -61,10 +61,10 @@ function addToCart(commodityId) {
             if (data.loggedIn === false) {
                 window.location.href = "login.jsp";
             } else if (data.success) {
-                // ¼ÓÈë¹ºÎï³µ³É¹¦ºóÌø×ªµ½¹ºÎï³µÒ³Ãæ
+                // æ·»åŠ è´­ç‰©è½¦æˆåŠŸåè·³è½¬åˆ°è´­ç‰©è½¦é¡µé¢
                 window.location.href = "myshopcart.jsp";
             } else {
-                alert("¼ÓÈë¹ºÎï³µÊ§°Ü£¬ÇëÉÔºóÔÙÊÔ£¡");
+                alert("æ·»åŠ è´­ç‰©è½¦å¤±è´¥ï¼Œè¯·ç¨åå†è¯•ï¼");
             }
         })
         .catch(error => console.error('Error:', error));
@@ -83,27 +83,27 @@ function remove(commodityId) {
                 itemElement.remove();
                 document.querySelector('.total-price').textContent = data.total;
                 if (data.cartEmpty) {
-                    document.querySelector('main').innerHTML = '<h1>¹ºÎï³µ¿Õ¿ÕÈçÒ²£¬¸Ï¿ìÈ¥¹ºÎï£¡</h1>';
+                    document.querySelector('main').innerHTML = '<h1>è´­ç‰©è½¦ç©ºäº†ï¼Œå¿«å»æ·»åŠ å•†å“å§ï¼</h1>';
                 }
             } else {
-                alert("ÒÆ³ıÊ§°Ü£¬ÇëÉÔºóÔÙÊÔ£¡");
+                alert("ç§»é™¤å¤±è´¥ï¼Œè¯·ç¨åå†è¯•ï¼");
             }
         })
         .catch(error => console.error('Error:', error));
 }
 
 function updateByNum(commodityId, changeNum) {
-    // »ñÈ¡µ±Ç°ÉÌÆ·ÊıÁ¿
+    // è·å–å½“å‰å•†å“æ•°é‡
     var itemElement = document.querySelector(`.item[data-id="${commodityId}"]`);
     var Num = parseInt(itemElement.getAttribute('data-num'), 10);
 
-    // µ±ÊıÁ¿Îª1²¢ÇÒÓÃ»§µã»÷¼õºÅÊ±£¬µ¯³öÌáÊ¾¿ò
+    // å½“æ•°é‡ä¸º1ä¸”ç”¨æˆ·ç‚¹å‡»å‡å·æ—¶ï¼Œç»™å‡ºæç¤ºå¹¶è¿”å›
     if (Num === 1 && changeNum === -1) {
-        alert("×¢Òâ£º±¦±´µÄÊıÁ¿²»ÄÜÔÙ¼õÉÙ¿©£¡");
+        alert("æ³¨æ„ï¼šå•†å“æ•°é‡ä¸èƒ½ä¸º1ï¼Œå†å‡ä¸å¯å•¦");
         return;
     }
 
-    // ·¢ËÍAjaxÇëÇó
+    // å‘é€Ajaxè¯·æ±‚
     fetch(`ShopCartController?commodityId=${commodityId}&serviceType=updateByNum&changeNum=${changeNum}`, {
         method: 'GET'
     })
@@ -117,30 +117,8 @@ function updateByNum(commodityId, changeNum) {
                 itemElement.querySelector('.num-display').textContent = newNum;
                 document.querySelector('.total-price').textContent = data.total;
             } else {
-                alert("¸üĞÂÊıÁ¿Ê§°Ü£¬ÇëÉÔºóÔÙÊÔ£¡");
+                alert("æ•°é‡ä¿®æ”¹å¤±è´¥ï¼Œè¯·ç¨åå†è¯•ï¼");
             }
         })
         .catch(error => console.error('Error:', error));
 }
-
-
-
-// function addToCart(commodityId){
-//     location.href = "ShopCartController?commodityId=" +commodityId +"&serviceType=addToCart";
-// }
-//
-// function remove(commodityId){
-//     location.href = "ShopCartController?commodityId=" +commodityId +"&serviceType=remove"
-// }
-// function updateByNum(commodityId, changeNum){
-//     // ÏÈÈ¡µ½¾ßÓĞÄ³ÊôĞÔÖµµÄ ÔªËØ £¨ÔÚJavaScriptÖĞ£¬¿ÉÒÔÊ¹ÓÃ dataset ÊôĞÔÀ´·ÃÎÊ×Ô¶¨ÒåÊı¾İÊôĞÔ£©
-//     var input = document.querySelector(`input[data-id="${commodityId}"]`);
-//     // ÔÙÈ¡¸ÃÔªËØµÄÊôĞÔÖµ
-//     var Num = parseInt(input.getAttribute('data-num'), 10);
-//     // µ±ÊıÁ¿Îª1²¢ÇÒÓÃ»§µã»÷¼õºÅÊ±£¬µ¯³öÌáÊ¾¿ò
-//     if (Num === 1 && changeNum === -1) {
-//         alert("×¢Òâ£º±¦±´µÄÊıÁ¿²»ÄÜÔÚ¼õÉÙ¿©£¡");
-//         return;
-//     }
-//     location.href = "ShopCartController?commodityId=" + commodityId + "&serviceType=updateByNum&changeNum=" + changeNum;
-// }

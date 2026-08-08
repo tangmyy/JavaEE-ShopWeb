@@ -8,7 +8,7 @@ import zx.bean.MyShopCartItemData;
 import zx.dao.CommodityDao;
 
 public class ShopCartService {
-   public static void dispathServiceType(String serviceType, String commodityId, MyShopCartDate myShopCartDate){  // what is serviceType?
+   public static void dispathServiceType(String serviceType, String commodityId, MyShopCartDate myShopCartDate){  // serviceType ç”¨äºåŒºåˆ†ä¸åŒçš„è´­ç‰©è½¦æ“ä½œç±»å‹
       switch (serviceType){
          case "addToCart":
             addToCart(commodityId, myShopCartDate);
@@ -17,13 +17,13 @@ public class ShopCartService {
             updateByCheckedBox(commodityId, myShopCartDate);
             break;
          case "updateAllCheckedBox":
-            boolean isChecked = Boolean.parseBoolean(commodityId); // ½« commodityId ½âÊÍÎªÈ«Ñ¡×´Ì¬
+            boolean isChecked = Boolean.parseBoolean(commodityId); // å°† commodityId å‚æ•°å¤ç”¨ä¸ºå…¨é€‰çŠ¶æ€
             updateAllCheckedBox(myShopCartDate, isChecked);
          break;
          case "remove":
             remove(commodityId, myShopCartDate);
             break;
-         default:             // Èç¹ûÃ»ÓĞÆ¥ÅäµÄcaseÔòÖ´ĞĞ£º
+         default:             // å¦‚æœæ²¡æœ‰åŒ¹é…åˆ°caseåˆ™ä¸æ‰§è¡Œ
             break;
       }
    }
@@ -53,13 +53,13 @@ public class ShopCartService {
 
 
    public static void addToCart(String commodityId, MyShopCartDate myShopCartDate){
-      if(myShopCartDate.getCartList().containsKey(commodityId)){     // µ±Ç°¹ºÎï³µÓĞ´ËÉÌÆ· ¸üĞÂÊıÁ¿²¢Ñ¡ÖĞ
-         // ÏÈ°Ñµ±Ç°Ïî±£´æ£¬ĞèÒªÊ¹ÓÃÊı¾İ
+      if(myShopCartDate.getCartList().containsKey(commodityId)){     // å½“å‰è´­ç‰©è½¦ä¸­å­˜åœ¨è¯¥å•†å“ï¼Œåˆ™æ•°é‡åŠ ä¸€ï¼Œé€‰ä¸­çŠ¶æ€è·Ÿéšå½“å‰å…¨é€‰
+         // å…ˆæŠŠå½“å‰é¡¹ä¿å­˜ä¸‹æ¥ï¼Œéœ€è¦ä½¿ç”¨æ•°é‡
          MyShopCartItemData myShopCartItemData = myShopCartDate.getCartList().get(commodityId);
-         myShopCartDate.remove(commodityId);       // removeÄÚÒÑ¾­ÊµÏÖ¸üĞÂ×Ü¼Æ
+         myShopCartDate.remove(commodityId);       // removeå·²ç»å®ç°äº†æ›´æ–°æ€»ä»·
          myShopCartDate.add(myShopCartItemData.getCommodity(),myShopCartItemData.getNum()+1);
       }else{
-         // ÏÈ×¼±¸ Commodity ¶ÔÏó£¬Í¨¹ıcommodityDao²ã²éÑ¯Êı¾İÀ´µÃµ½Êı¾İ
+         // å…ˆå‡†å¤‡ Commodity å¯¹è±¡ï¼Œé€šè¿‡ commodityDao æŸ¥è¯¢å•†å“ä¿¡æ¯
          Commodity commodity = CommodityDao.selectCommodityById(Integer.parseInt(commodityId));
          myShopCartDate.add(commodity, 1);
       }

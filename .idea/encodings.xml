@@ -5,7 +5,12 @@
     <file url="file://$PROJECT_DIR$/src/main/java/zx" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/zx/bean/MyShopCartDate.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/java/zx/bean/MyShopCartItemData.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/zx/controller/LoginController.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/zx/controller/RegisterController.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/zx/controller/RetrieveController.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/java/zx/controller/ShopCartController.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/zx/dao/CommodityDao.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/zx/dao/UserDao.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/java/zx/service/ShopCartService.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/Test" charset="GBK" />

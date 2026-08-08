@@ -3,10 +3,10 @@ package zx.bean;
 import java.math.BigDecimal;
 
 public class MyShopCartItemData {
-   private boolean checked;   // ±íÊ¾µ±Ç°ÉÌÆ·ÔÚ¹ºÎï³µÖĞµÄÑ¡ÖĞ×´Ì¬ ¾ö¶¨ÊÇ·ñÒª¼ÓÈëÍ³¼Æ
+   private boolean checked;   // è¡¨ç¤ºå½“å‰å•†å“åœ¨è´­ç‰©è½¦ä¸­çš„é€‰ä¸­çŠ¶æ€ï¼Œå†³å®šæ˜¯å¦è¦è®¡å…¥ç»Ÿè®¡
    private Commodity commodity;
-   private int num;  // µ±Ç°¹ºÎï³µÄÚ¸ÃÉÌÆ·µÄÊıÁ¿
-   private BigDecimal subtotal;   // µ±Ç°¹ºÎï³µÄÚÉÌÆ·ÏîµÄĞ¡¼Æ
+   private int num;  // å½“å‰è´­ç‰©è½¦ä¸­è¯¥å•†å“çš„æ•°é‡
+   private BigDecimal subtotal;   // å½“å‰è´­ç‰©è½¦è¯¥å•†å“çš„å°è®¡
 
    public MyShopCartItemData(boolean checked, Commodity commodity, int num) {
       this.checked = checked;
