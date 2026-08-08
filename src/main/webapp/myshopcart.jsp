@@ -37,7 +37,8 @@
 <c:if test="${!empty myShopCartDate.cartList}">
     <main>
         <div class="itemTitle">
-            <input type="checkbox" id="select-all" ${myShopCartDate.allChecked?"checked":""} onclick ="updateAllCheckedBox(${itemEntity.value.commodity.id})"/> 全选
+            <%-- <input type="checkbox" id="select-all" ${myShopCartDate.allChecked?"checked":""} onclick ="updateAllCheckedBox(${itemEntity.value.commodity.id})"/> 全选 --%>
+            <input type="checkbox" id="select-all" ${myShopCartDate.allChecked?"checked":""} /> 全选
             <img class="cell cell1" alt="" src="image/empty.png">
             <div class="cell cell3">商品信息</div>
             <div class="cell cell1">商品价格</div>
@@ -46,7 +47,8 @@
         </div>
         <c:forEach var="itemEntity" items="${myShopCartDate.cartList}">
         <div class="item" data-id="${itemEntity.value.commodity.id}" data-num="${itemEntity.value.num}" >
-            <input class="item-checkbox" type="checkbox" data-id="${itemEntity.value.commodity.id}" data-num="${itemEntity.value.num}" onclick ="updateByCheckedBox(${itemEntity.value.commodity.id})" ${itemEntity.value.checked?"checked":""}/>
+            <%-- <input class="item-checkbox" type="checkbox" data-id="${itemEntity.value.commodity.id}" data-num="${itemEntity.value.num}" onclick ="updateByCheckedBox(${itemEntity.value.commodity.id})" ${itemEntity.value.checked?"checked":""}/> --%>
+            <input class="item-checkbox" type="checkbox" data-id="${itemEntity.value.commodity.id}" data-num="${itemEntity.value.num}" ${itemEntity.value.checked?"checked":""}/>
             <img class="cell" src="${itemEntity.value.commodity.imgpath}"/>
             <div class="cell cell3">${itemEntity.value.commodity.description}</div>
             <div class="cell cell1 price">${itemEntity.value.commodity.price}</div>

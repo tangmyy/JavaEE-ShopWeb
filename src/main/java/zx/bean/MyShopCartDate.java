@@ -7,51 +7,51 @@ import java.util.HashMap;
 public class MyShopCartDate {
    private int userID;
    private boolean allChecked;
-   private HashMap <String, MyShopCartItemData> cartList; // ÊÇ¹ºÎï³µÖÐÉÌÆ·ÏîµÄ¼¯ºÏ key-value commodityID-MyShopCartItemData
-   private BigDecimal total;     // ¹ºÎï³µ×Ü¼Û
+   private HashMap <String, MyShopCartItemData> cartList; // ï¿½Ç¹ï¿½ï¿½ï³µï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ key-value commodityID-MyShopCartItemData
+   private BigDecimal total;     // ï¿½ï¿½ï¿½ï³µï¿½Ü¼ï¿½
 
    public MyShopCartDate(int userID) {
       this.userID = userID;
       this.allChecked = true;
-      this.cartList = new HashMap<String, MyShopCartItemData>();   //List³õÊ¼»¯£¬ Ä¿Ç°ÔªËØ¸öÊýÎª0 µ«cartList²»ÊÇNull
+      this.cartList = new HashMap<String, MyShopCartItemData>();   //Listï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ Ä¿Ç°Ôªï¿½Ø¸ï¿½ï¿½ï¿½Îª0 ï¿½ï¿½cartListï¿½ï¿½ï¿½ï¿½Null
       this.total = new BigDecimal(0);
    }
 
-   // Ôö¼Ó
+   // ï¿½ï¿½ï¿½ï¿½
    public void add(Commodity commodity, int num){
-      MyShopCartItemData myShopCartItemData = new MyShopCartItemData(true, commodity, num);     // °Ñ 1 ¸ÄÎª num
-      cartList.put(commodity.getId()+"", myShopCartItemData);   // Sting.valueOf(commodity.getID()) É¶ÒâË¼£¿£¿£¿
+      MyShopCartItemData myShopCartItemData = new MyShopCartItemData(true, commodity, num);     // ï¿½ï¿½ 1 ï¿½ï¿½Îª num
+      cartList.put(commodity.getId()+"", myShopCartItemData);   // Sting.valueOf(commodity.getID()) É¶ï¿½ï¿½Ë¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
       setTotal(total.add(commodity.getPrice() ));
    }
 
-   // É¾³ý
+   // É¾ï¿½ï¿½
    public void remove(String commodityID) {
-      MyShopCartItemData myShopCartItemData = cartList.get(commodityID);      //µÃµ½ÒªÒÆ³ýµÄÏîÄ¿
-      // Èç¹ûÉÌÆ·Ïî±»Ñ¡ÖÐ ¾Í¸Ä±ä×Ü¼Æ
+      MyShopCartItemData myShopCartItemData = cartList.get(commodityID);      //ï¿½Ãµï¿½Òªï¿½Æ³ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿
+      // ï¿½ï¿½ï¿½ï¿½ï¿½Æ·ï¿½î±»Ñ¡ï¿½ï¿½ ï¿½Í¸Ä±ï¿½ï¿½Ü¼ï¿½
       if(myShopCartItemData.getChecked()) {
          setTotal(getTotal().subtract(myShopCartItemData.getSubtotal()));
       }
-      // ×¢Òâ£º²»ÔÚif·¶Î§ÄÚ
+      // ×¢ï¿½â£ºï¿½ï¿½ï¿½ï¿½ifï¿½ï¿½Î§ï¿½ï¿½
       cartList.remove(commodityID);
    }
-   // ¸Ä±ä
-   public void updateByNum(String commodityID, int changeNum) {            // changNumµÄº¬ÒåÊÇ±ä»¯µÄÊýÁ¿£¬²»ÊÇ±ä»¯ºóµÄÊýÁ¿
+   // ï¿½Ä±ï¿½
+   public void updateByNum(String commodityID, int changeNum) {            // changNumï¿½Äºï¿½ï¿½ï¿½ï¿½Ç±ä»¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç±ä»¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
       MyShopCartItemData myShopCartItemData = cartList.get(commodityID);
       int newNum = myShopCartItemData.getNum() + changeNum;
-      // Èç¹ûÐÂµÄÊýÁ¿Ð¡ÓÚµÈÓÚ0£¬Ôò²»½øÐÐ¸üÐÂ
+      // ï¿½ï¿½ï¿½ï¿½Âµï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½Úµï¿½ï¿½ï¿½0ï¿½ï¿½ï¿½ò²»½ï¿½ï¿½Ð¸ï¿½ï¿½ï¿½
       if (newNum <= 0) {
          return;
       } else{
-         myShopCartItemData.setNum(newNum);   // ¸üÐÂÊýÁ¿
-         myShopCartItemData.setSubtotal();    // ¸üÐÂ×Ü¼Æ
+         myShopCartItemData.setNum(newNum);   // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+         myShopCartItemData.setSubtotal();    // ï¿½ï¿½ï¿½ï¿½ï¿½Ü¼ï¿½
       }
-      // Èç¹ûÉÌÆ·Ïî±»Ñ¡ÖÐ ²Å¸Ä±ä×Ü¼Æ
+      // ï¿½ï¿½ï¿½ï¿½ï¿½Æ·ï¿½î±»Ñ¡ï¿½ï¿½ ï¿½Å¸Ä±ï¿½ï¿½Ü¼ï¿½
       if (myShopCartItemData.getChecked()) {
          setTotal(getTotal().add(myShopCartItemData.getCommodity().getPrice().multiply(new BigDecimal(changeNum))));
       }
    }
 
-   // µ¥Ñ¡ºÐ×Ó
+   // ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½
    public void updateByCheckedBox(String commodityID) {
       MyShopCartItemData myShopCartItemData = cartList.get(commodityID);
       myShopCartItemData.setChecked(!myShopCartItemData.getChecked());
@@ -61,7 +61,7 @@ public class MyShopCartDate {
          setTotal(total.subtract(myShopCartItemData.getSubtotal()) );
       }
    }
-   // È«Ñ¡ºÐ×Ó
+   // È«Ñ¡ï¿½ï¿½ï¿½ï¿½
    public void updateAllCheckedBox(boolean isChecked) {
       allChecked = isChecked;
       BigDecimal newTotal = BigDecimal.ZERO;
@@ -119,7 +119,7 @@ public class MyShopCartDate {
 }
 
 
-//// É¾³ý
+//// É¾ï¿½ï¿½
 //public void remove(String commodityID) {
 //   MyShopCartItemData myShopCartItemData = cartList.get(commodityID);
 //   if(myShopCartItemData != null && myShopCartItemData.getChecked()) {
@@ -130,18 +130,18 @@ public class MyShopCartDate {
 //      setTotal(BigDecimal.ZERO);
 //   }
 //}
-//// ¸Ä±ä
+//// ï¿½Ä±ï¿½
 //public void updateByNum(String commodityID, int changeNum) {
 //   MyShopCartItemData myShopCartItemData = cartList.get(commodityID);
 //   int newNum = myShopCartItemData.getNum() + changeNum;
-//   // Èç¹ûÐÂµÄÊýÁ¿Ð¡ÓÚµÈÓÚ0£¬Ôò²»½øÐÐ¸üÐÂ
+//   // ï¿½ï¿½ï¿½ï¿½Âµï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½Úµï¿½ï¿½ï¿½0ï¿½ï¿½ï¿½ò²»½ï¿½ï¿½Ð¸ï¿½ï¿½ï¿½
 //   if (newNum <= 0) {
 //      return;
 //   } else {
 //      myShopCartItemData.setNum(newNum);
 //      myShopCartItemData.setSubtotal();
 //   }
-//   // Èç¹ûÉÌÆ·Ïî±»Ñ¡ÖÐ ²Å¸Ä±ä×Ü¼Æ
+//   // ï¿½ï¿½ï¿½ï¿½ï¿½Æ·ï¿½î±»Ñ¡ï¿½ï¿½ ï¿½Å¸Ä±ï¿½ï¿½Ü¼ï¿½
 //   if (myShopCartItemData.getChecked()) {
 //      setTotal(getTotal().add(myShopCartItemData.getCommodity().getPrice().multiply(new BigDecimal(changeNum))));
 //      if (total.compareTo(BigDecimal.ZERO) < 0) {
@@ -175,19 +175,19 @@ public class MyShopCartDate {
 //   }
 //}
 
-// Í¬²½È«Ñ¡
+// Í¬ï¿½ï¿½È«Ñ¡
 //   public void updateAllCheckedBox() {
-//      allChecked = !allChecked; // ÇÐ»»È«Ñ¡×´Ì¬
-//      BigDecimal newTotal = BigDecimal.ZERO; // ÓÃÓÚ¼ÆËãÐÂµÄ×Ü¼Û
+//      allChecked = !allChecked; // ï¿½Ð»ï¿½È«Ñ¡×´Ì¬
+//      BigDecimal newTotal = BigDecimal.ZERO; // ï¿½ï¿½ï¿½Ú¼ï¿½ï¿½ï¿½ï¿½Âµï¿½ï¿½Ü¼ï¿½
 //      for (MyShopCartItemData myShopCartItemData : cartList.values()) {
-//         // ¸üÐÂÃ¿¸öÉÌÆ·ÏîµÄÑ¡ÖÐ×´Ì¬
+//         // ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½×´Ì¬
 //         myShopCartItemData.setChecked(allChecked);
-//         // Èç¹ûÑ¡ÔñÁËËùÓÐÉÌÆ·£¬ÔòÀÛ¼ÓÆäÐ¡¼Æµ½×Ü¼Û
+//         // ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½Û¼ï¿½ï¿½ï¿½Ð¡ï¿½Æµï¿½ï¿½Ü¼ï¿½
 //         if (allChecked) {
 //            newTotal = newTotal.add(myShopCartItemData.getSubtotal());
 //         }
 //      }
-//      setTotal(newTotal);    // ÉèÖÃÐÂµÄ×Ü¼Û
+//      setTotal(newTotal);    // ï¿½ï¿½ï¿½ï¿½ï¿½Âµï¿½ï¿½Ü¼ï¿½
 //   }
 //            case "updateAllCheckedBox":
 //   updateAllCheckedBox(myShopCartDate);

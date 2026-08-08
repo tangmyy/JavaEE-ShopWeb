@@ -26,20 +26,28 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 function updateByCheckedBox(commodityId) {
     fetch(`ShopCartController?commodityId=${commodityId}&serviceType=updateByCheckedBox`)
-        .then(response => response.text())
+        .then(response => response.json())
         .then(data => {
             console.log(data);
-            // 可以根据需要更新页面或进行其他操作
+            if (data.loggedIn === false) {
+                window.location.href = "login.jsp";
+            } else if (data.success) {
+                document.querySelector('.total-price').textContent = data.total;
+            }
         })
         .catch(error => console.error('Error:', error));
 }
 
 function updateAllCheckedBox(isChecked) {
     fetch(`ShopCartController?serviceType=updateAllCheckedBox&commodityId=${isChecked}`)
-        .then(response => response.text())
+        .then(response => response.json())
         .then(data => {
             console.log(data);
-            // 可以根据需要更新页面或进行其他操作
+            if (data.loggedIn === false) {
+                window.location.href = "login.jsp";
+            } else if (data.success) {
+                document.querySelector('.total-price').textContent = data.total;
+            }
         })
         .catch(error => console.error('Error:', error));
 }
